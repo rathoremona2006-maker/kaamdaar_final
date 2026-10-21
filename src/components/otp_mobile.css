@@ -1,0 +1,649 @@
+/* ========================================
+   KAAMDAAR — MOBILE OTP PAGE
+   Navy Blue + Orange | Glass Pill Navbar
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.mobile-otp-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #edf4fb;
+  font-family: 'Inter', sans-serif;
+  color: #0a1931;
+}
+
+.mobile-otp-page *,
+.mobile-otp-page *::before,
+.mobile-otp-page *::after {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   FLOATING GLASS NAVBAR
+======================================== */
+
+.mobile-otp-navbar {
+  position: sticky;
+  top: 14px;
+  z-index: 1000;
+
+  width: calc(100% - 9.6%);
+  min-height: 76px;
+  margin: 14px auto 0;
+  padding: 12px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 30px rgba(10, 25, 49, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.logo{
+  height: 48px;
+}
+
+/* Navbar logo */
+
+.mobile-otp-navbar .mobile-otp-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  color: #0a1931;
+  text-decoration: none;
+}
+
+.mobile-otp-brand-mark {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--color-orange), #ff9b32);
+  box-shadow: 0 5px 14px rgba(255, 122, 0, 0.2);
+
+  color: var(--color-white);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.mobile-otp-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mobile-otp-brand-name {
+  color: #0a1931;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+}
+
+.mobile-otp-brand-name span {
+  color: var(--color-orange);
+}
+
+.mobile-otp-brand-text small {
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* Navbar links */
+
+.mobile-otp-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+}
+
+.mobile-otp-home-link {
+  color: #0a1931;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  transition: color 0.25s ease;
+}
+
+.mobile-otp-home-link:hover {
+  color: var(--color-orange);
+}
+
+/* Pill-shaped Login button */
+
+.mobile-otp-login-button {
+  min-width: 112px;
+  min-height: 44px;
+  padding: 10px 25px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #0a4385;
+  border-radius: 999px;
+
+  color: #0a1931;
+  background: rgba(255, 255, 255, 0.55);
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mobile-otp-login-button:hover {
+  background: #0a1931;
+  color: var(--color-white);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(10, 25, 49, 0.15);
+}
+
+/* ========================================
+   MAIN LAYOUT
+======================================== */
+
+.mobile-otp-main {
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 104px);
+  padding: 45px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   OTP CARD
+======================================== */
+
+.mobile-otp-card {
+  width: 100%;
+  max-width: 465px;
+  padding: 38px 38px 36px;
+
+  background: var(--color-white);
+  border: 1px solid rgba(10, 25, 49, 0.06);
+  border-radius: 26px;
+
+  box-shadow: 0 18px 55px rgba(10, 25, 49, 0.08);
+
+  text-align: center;
+  animation: mobileOtpFadeIn 0.45s ease both;
+}
+
+@keyframes mobileOtpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   CARD BRAND
+======================================== */
+
+.mobile-otp-card-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 27px;
+}
+
+.mobile-otp-card-brand .mobile-otp-brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+}
+
+.mobile-otp-card-brand .mobile-otp-brand-text {
+  text-align: left;
+}
+
+/* ========================================
+   HEADING AND DESCRIPTION
+======================================== */
+
+.mobile-otp-card h1 {
+  margin: 0 0 12px;
+
+  color: #0a1931;
+  font-size: clamp(26px, 4vw, 32px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.25;
+}
+
+.mobile-otp-description {
+  margin: 0 0 5px;
+
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.mobile-otp-destination {
+  margin: 0 0 25px;
+
+  color: #1e63a0;
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   OTP INPUT BOXES
+======================================== */
+
+.mobile-otp-inputs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin: 0 auto 18px;
+}
+
+.mobile-otp-input {
+  width: 48px;
+  height: 55px;
+  min-width: 0;
+  padding: 0;
+
+  border: 1.5px solid #dbe4ef;
+  border-radius: 13px;
+  outline: none;
+
+  background: #f9fbfe;
+  color: #0a1931;
+
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.mobile-otp-input:hover {
+  border-color: #9db6d3;
+}
+
+.mobile-otp-input:focus {
+  border-color: var(--color-orange);
+  background: var(--color-white);
+  box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.1);
+}
+
+.mobile-otp-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* ========================================
+   RESEND OTP — CORRECT JSX CLASS
+======================================== */
+
+.mobile-otp-resend {
+  width: 100%;
+  min-height: 25px;
+  margin: 0 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.mobile-otp-resend strong {
+  color: #0a1931;
+  font-size: 13px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Actual resend button from your JSX */
+
+.mobile-otp-resend button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 12px;
+  border: 1px solid rgba(30, 99, 160, 0.22);
+  border-radius: 999px;
+
+  background: #edf4fb;
+  color: #1e63a0;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mobile-otp-resend button:hover:not(:disabled) {
+  background: #1e63a0;
+  color: var(--color-white);
+  border-color: #1e63a0;
+  transform: translateY(-1px);
+}
+
+.mobile-otp-resend button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   ERROR AND SUCCESS MESSAGES
+======================================== */
+
+.mobile-otp-error,
+.mobile-otp-message {
+  margin: 0 0 18px;
+  padding: 11px 13px;
+
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.mobile-otp-error {
+  border: 1px solid #fecaca;
+  background: #fff1f2;
+  color: #be123c;
+}
+
+.mobile-otp-message {
+  border: 1px solid #bbf7d0;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+/* ========================================
+   VERIFY & CONTINUE — CORRECT JSX CLASS
+======================================== */
+
+.mobile-otp-primary-button {
+  width: 100%;
+  min-height: 54px;
+  margin: 0;
+  padding: 15px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: linear-gradient(100deg, #ff7900, #ff6800);
+  color: #fff;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  cursor: pointer;
+
+  box-shadow: 0 9px 20px rgba(255, 122, 0, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.mobile-otp-primary-button span {
+  display: inline-block;
+  font-size: 21px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.mobile-otp-primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(255, 122, 0, 0.28);
+}
+
+.mobile-otp-primary-button:hover:not(:disabled) span {
+  transform: translateX(4px);
+}
+
+.mobile-otp-primary-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.mobile-otp-primary-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ========================================
+   RESPONSIVE — TABLET AND MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .mobile-otp-navbar {
+    width: calc(100% - 24px);
+    min-height: 62px;
+    margin-top: 12px;
+    top: 10px;
+    padding: 9px 13px;
+    gap: 10px;
+  }
+
+  .mobile-otp-navbar .mobile-otp-brand {
+    gap: 7px;
+  }
+
+  .mobile-otp-navbar .mobile-otp-brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    font-size: 19px;
+  }
+
+  .mobile-otp-navbar .mobile-otp-brand-name {
+    font-size: 16px;
+  }
+
+  .mobile-otp-navbar .mobile-otp-brand-text small {
+    font-size: 9px;
+  }
+
+  .mobile-otp-nav-links {
+    gap: 12px;
+  }
+
+  .mobile-otp-home-link {
+    font-size: 12px;
+  }
+
+  .mobile-otp-login-button {
+    min-width: auto;
+    min-height: 36px;
+    padding: 7px 15px;
+    font-size: 12px;
+  }
+
+  .mobile-otp-main {
+    min-height: calc(100vh - 85px);
+    padding: 35px 16px 28px;
+  }
+
+  .mobile-otp-card {
+    max-width: 430px;
+    padding: 30px 22px 27px;
+    border-radius: 22px;
+  }
+
+  .mobile-otp-card-brand {
+    margin-bottom: 23px;
+  }
+
+  .mobile-otp-card-brand .mobile-otp-brand-mark {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+  }
+
+  .mobile-otp-card-brand .mobile-otp-brand-name {
+    font-size: 17px;
+  }
+
+  .mobile-otp-card h1 {
+    font-size: 27px;
+  }
+
+  .mobile-otp-description {
+    font-size: 13px;
+  }
+
+  .mobile-otp-destination {
+    margin-bottom: 22px;
+    font-size: 13px;
+  }
+
+  .mobile-otp-inputs {
+    gap: 7px;
+    margin-bottom: 16px;
+  }
+
+  .mobile-otp-input {
+    width: 43px;
+    height: 51px;
+    border-radius: 11px;
+    font-size: 20px;
+  }
+
+  .mobile-otp-resend {
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+
+  .mobile-otp-resend button {
+    font-size: 12px;
+  }
+
+  .mobile-otp-primary-button {
+    min-height: 50px;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — SMALL MOBILE
+======================================== */
+
+@media (max-width: 360px) {
+  .mobile-otp-navbar {
+    padding: 8px 10px;
+  }
+
+  .mobile-otp-navbar .mobile-otp-brand {
+    gap: 5px;
+  }
+
+  .mobile-otp-navbar .mobile-otp-brand-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 17px;
+  }
+
+  .mobile-otp-navbar .mobile-otp-brand-name {
+    font-size: 14px;
+  }
+
+  .mobile-otp-nav-links {
+    gap: 8px;
+  }
+
+  .mobile-otp-home-link {
+    font-size: 11px;
+  }
+
+  .mobile-otp-login-button {
+    min-height: 33px;
+    padding: 6px 11px;
+    font-size: 11px;
+  }
+
+  .mobile-otp-card {
+    padding: 27px 15px 24px;
+  }
+
+  .mobile-otp-inputs {
+    gap: 5px;
+  }
+
+  .mobile-otp-input {
+    width: 39px;
+    height: 47px;
+    font-size: 18px;
+  }
+
+  .mobile-otp-primary-button {
+    gap: 8px;
+    font-size: 13px;
+  }
+}

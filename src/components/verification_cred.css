@@ -1,0 +1,510 @@
+/* ========================================
+   KAAMDAAR — SIGNUP PAGE
+   Navy Blue + Orange | Glass Pill Navbar
+======================================== */
+
+.signup-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #edf4fb;
+  font-family: 'Inter', sans-serif;
+  color: #0a1931;
+}
+
+.signup-page *,
+.signup-page *::before,
+.signup-page *::after {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   FLOATING GLASS NAVBAR
+======================================== */
+
+.signup-navbar {
+  position: sticky;
+  top: 14px;
+  z-index: 1000;
+
+  width: calc(100% - 9.6%);
+  min-height: 76px;
+  margin: 14px auto 0;
+  padding: 12px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 30px rgba(10, 25, 49, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.logo{
+  height: 48px;
+}
+
+/* Navbar links */
+
+.signup-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+}
+
+.signup-home-link {
+  color: #0a1931;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.signup-home-link:hover {
+  color: var(--color-orange);
+}
+
+/* Pill-shaped Login button */
+
+.signup-login-button {
+  min-width: 112px;
+  min-height: 44px;
+  padding: 10px 25px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #0a4385;
+  border-radius: 999px;
+
+  color: #0a1931;
+  background: rgba(255, 255, 255, 0.55);
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.signup-login-button:hover {
+  background: #0a1931;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(10, 25, 49, 0.15);
+}
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.signup-main {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding: 48px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   CREATE ACCOUNT CARD
+======================================== */
+
+.signup-card {
+  width: 100%;
+  max-width: 465px;
+  padding: 42px 38px 38px;
+
+  background: #fff;
+  border: 1px solid rgba(10, 25, 49, 0.06);
+  border-radius: 26px;
+
+  box-shadow: 0 18px 55px rgba(10, 25, 49, 0.08);
+}
+
+/* Card brand */
+
+.signup-card-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 42px;
+}
+
+.signup-card-brand .signup-brand-mark {
+  width: 51px;
+  height: 51px;
+  font-size: 29px;
+}
+
+.signup-card-brand .signup-brand-name {
+  font-size: 30px;
+}
+
+.signup-card-brand .signup-brand-text small {
+  font-size: 11px;
+}
+
+/* Heading */
+
+.signup-card h1 {
+  margin: 0 0 56px;
+  color: #0a1931;
+  text-align: center;
+
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+/* ========================================
+   MOBILE NUMBER FIELD
+======================================== */
+
+.signup-field-label {
+  display: block;
+  margin-bottom: 12px;
+  color: #60728d;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.signup-mobile-input {
+  width: 100%;
+  min-height: 63px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 17px;
+
+  border: 1.5px solid #cad6e6;
+  border-radius: 16px;
+  background: #fff;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.signup-mobile-input:focus-within {
+  border-color: #1e63a0;
+  box-shadow: 0 0 0 3px rgba(30, 99, 160, 0.1);
+}
+
+.signup-india-flag {
+  font-size: 21px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.signup-mobile-input select {
+  max-width: 62px;
+  border: 0;
+  outline: 0;
+
+  color: #60728d;
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup-input-divider {
+  width: 1.5px;
+  height: 32px;
+  flex-shrink: 0;
+  background: #cbd5e1;
+}
+
+.signup-mobile-input input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 0;
+
+  border: 0;
+  outline: 0;
+
+  color: #0a1931;
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 18px;
+}
+
+.signup-mobile-input input::placeholder {
+  color: #98a6bb;
+  opacity: 1;
+}
+
+/* ========================================
+   CONTINUE BUTTON
+======================================== */
+
+.signup-primary-button {
+  width: 100%;
+  min-height: 53px;
+  margin-top: 28px;
+  padding: 14px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, var(--color-orange), #ff922e);
+  color: #fff;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.signup-primary-button span {
+  font-size: 21px;
+  line-height: 1;
+}
+
+.signup-primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(255, 122, 0, 0.25);
+}
+
+.signup-primary-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.signup-primary-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+/* Error message */
+
+.signup-error {
+  margin: 10px 0 0;
+  color: #c62828;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .signup-navbar {
+    width: calc(100% - 48px);
+    padding: 12px 22px;
+  }
+
+  .signup-nav-links {
+    gap: 22px;
+  }
+
+  .signup-main {
+    padding: 40px 20px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .signup-navbar {
+    top: 8px;
+    width: calc(100% - 24px);
+    min-height: 64px;
+    margin-top: 8px;
+    padding: 10px 15px;
+    gap: 12px;
+  }
+
+  .signup-brand {
+    gap: 6px;
+  }
+
+  .signup-brand-mark {
+    width: 34px;
+    height: 34px;
+    font-size: 19px;
+  }
+
+  .signup-brand-name {
+    font-size: 18px;
+    letter-spacing: -0.6px;
+  }
+
+  .signup-brand-text small {
+    font-size: 8px;
+  }
+
+  .signup-nav-links {
+    gap: 12px;
+  }
+
+  .signup-home-link {
+    font-size: 13px;
+  }
+
+  .signup-login-button {
+    min-width: 72px;
+    min-height: 36px;
+    padding: 7px 13px;
+    font-size: 12px;
+  }
+
+  .signup-main {
+    padding: 32px 16px;
+  }
+
+  .signup-card {
+    max-width: 440px;
+    padding: 35px 23px 38px;
+  }
+
+  .signup-card-brand {
+    margin-bottom: 32px;
+  }
+
+  .signup-card-brand .signup-brand-mark {
+    width: 43px;
+    height: 43px;
+    font-size: 24px;
+  }
+
+  .signup-card-brand .signup-brand-name {
+    font-size: 25px;
+  }
+
+  .signup-card-brand .signup-brand-text small {
+    font-size: 9px;
+  }
+
+  .signup-card h1 {
+    margin-bottom: 38px;
+    font-size: 28px;
+  }
+
+  .signup-field-label {
+    font-size: 16px;
+  }
+
+  .signup-mobile-input {
+    min-height: 57px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .signup-mobile-input select {
+    font-size: 14px;
+  }
+
+  .signup-mobile-input input {
+    font-size: 16px;
+  }
+
+  .signup-primary-button {
+    min-height: 58px;
+    margin-top: 38px;
+    font-size: 19px;
+  }
+
+  .signup-primary-button span {
+    font-size: 23px;
+  }
+}
+
+/* Extra-small screens */
+
+@media (max-width: 360px) {
+  .signup-navbar {
+    padding: 9px 10px;
+  }
+
+  .signup-brand {
+    gap: 5px;
+  }
+
+  .signup-brand-mark {
+    width: 30px;
+    height: 30px;
+    font-size: 17px;
+  }
+
+  .signup-brand-name {
+    font-size: 16px;
+  }
+
+  .signup-brand-text small {
+    font-size: 7px;
+  }
+
+  .signup-nav-links {
+    gap: 9px;
+  }
+
+  .signup-home-link {
+    font-size: 12px;
+  }
+
+  .signup-login-button {
+    min-width: 64px;
+    min-height: 33px;
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .signup-card {
+    padding: 30px 17px;
+  }
+
+  .signup-card h1 {
+    font-size: 25px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .signup-page *,
+  .signup-page *::before,
+  .signup-page *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

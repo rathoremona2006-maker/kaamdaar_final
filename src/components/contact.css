@@ -1,0 +1,207 @@
+.contact-section {
+  background: #f6f9ff;
+  padding: 80px 5% 100px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+/* Watercolor blobs like screenshot */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  left: -80px;
+  top: 0;
+  width: 350px;
+  height: 180px;
+  background: linear-gradient(120deg, #f7b26a 0%, #fbe2c0 100%);
+  border-radius: 0 0 60% 0;
+  opacity: 0.8;
+  z-index: 0;
+}
+.contact-section::after {
+  content: '';
+  position: absolute;
+  right: -60px;
+  bottom: 0;
+  width: 500px;
+  height: 350px;
+  background: radial-gradient(circle at 30% 30%, #2a5aa8 0%, #1e3e7a 40%, #f0a74a 100%);
+  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  z-index: 0;
+}
+
+.contact-badge {
+  display: inline-block;
+  background: #dbe9fb;
+  color: #1a3a68;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-title {
+  font-size: 44px;
+  font-weight: 800;
+  color: #0e1e3d;
+  margin: 12px 0 30px;
+  position: relative;
+  z-index: 1;
+}
+.contact-title span {
+  color: var(--color-orange);
+}
+
+/* Main Card */
+.contact-card {
+  background: #fff;
+  max-width: 1050px;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(15, 63, 122, 0.08);
+  display: flex;
+  padding: 24px;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+/* Left */
+.contact-left {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.team-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+.contact-left h2 {
+  font-size: 26px;
+  font-weight: 900;
+  color: #0e1e3d;
+  margin: 10px 0 16px;
+  letter-spacing: 0.5px;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #222;
+  font-weight: 500;
+}
+
+.info-icon {
+  width: 32px;
+  height: 32px;
+  background: #ffead1;
+  color: #e67e00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.info-slogan {
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #111;
+}
+
+/* Right Form */
+.contact-right {
+  flex: 1;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  padding: 22px;
+  border: 1px solid #f0f0f0;
+}
+
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  background: #eaf3ff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: 0.3s;
+  color: #333;
+}
+
+.contact-right input::placeholder,
+.contact-right textarea::placeholder {
+  color: #5a6b84;
+}
+
+.contact-right input:focus,
+.contact-right textarea:focus {
+  border-color: #a9c6e8;
+  background: #e6efff;
+}
+
+.contact-right textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.send-btn {
+  background: var(--color-orange);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 4px;
+}
+
+.send-btn:hover {
+  background: #e66e00;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(255, 122, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .contact-title { font-size: 32px; }
+  .contact-card { flex-direction: column; padding: 16px; }
+  .contact-left { align-items: center; text-align: left; }
+  .team-img { max-width: 280px; }
+  .contact-section::before, .contact-section::after { display: none; }
+}

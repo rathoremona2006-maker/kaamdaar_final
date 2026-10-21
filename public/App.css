@@ -1,0 +1,1261 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  color: #F7F9FC;
+  background: #10213d;
+}
+
+.app-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Global variables */
+:root {
+  --ink: #fff;
+  --blue: #175ca8;
+  --orange: #f58a24;
+  --muted: #66758c;
+  --surface: #10213d;
+  --line: rgba(23, 63, 112, .10);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 125px;
+}
+
+.app-container {
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    #f8faff 0%,
+    #fff 48%,
+    #f7f9fd 100%
+  );
+}
+
+main > section {
+  position: relative;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: #dbeafe;
+  color: #10213d;
+}
+
+/* Navbar — preserve existing design */
+.navbar {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: min(1360px, calc(100% - 48px));
+  min-height: 82px;
+  padding: 16px 28px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  box-shadow: 0 14px 40px rgba(23, 55, 98, 0.13);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  min-width: max-content;
+}
+
+.nav-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1c6db4, #123e79);
+  color: white;
+  font-weight: 900;
+  font-size: 22px;
+  box-shadow: 0 7px 15px rgba(18, 78, 145, .2);
+}
+
+.nav-brand-name {
+  font-size: 16px;
+  letter-spacing: .04em;
+  font-weight: 900;
+  color: #122441;
+  line-height: 1.05;
+}
+
+.nav-brand-name > span {
+  color: #f58a24;
+}
+
+.nav-brand-name small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: .09em;
+  color: #718097;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1vw, 16px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 12px 13px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: #4b5563;
+  transition: background .25s, color .25s, transform .25s;
+}
+
+.nav-links li:hover {
+  background: #eef5ff;
+  color: #175ca8;
+  transform: translateY(-1px);
+}
+
+.nav-links li.active {
+  background: #edf4ff;
+  color: #175ca8;
+  font-weight: 750;
+}
+
+.nav-cta {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #ff9d3e, #f07813);
+  color: white;
+  border: none;
+  padding: 15px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(245, 138, 36, .22);
+  transition: transform .25s, box-shadow .25s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(245, 138, 36, .3);
+}
+
+/* Hero */
+#home {
+  padding-top: 0;
+}
+
+.hero {
+  min-height: 650px;
+  align-items: center;
+  padding: 90px max(6%, calc((100vw - 1240px) / 2)) 86px;
+  gap: 36px;
+  background:
+    radial-gradient(ellipse at 83% 40%, rgba(214, 231, 255, .55), transparent 36%),
+    linear-gradient(135deg, #f9fbff, #f3f7ff);
+}
+
+.hero-water.water1 {
+  opacity: .42;
+  filter: blur(2px);
+}
+
+.hero-water.water2 {
+  width: 440px;
+  height: 440px;
+  right: -70px;
+  top: 16%;
+  opacity: .78;
+  filter: saturate(.8);
+}
+
+.hero-water.water3 {
+  opacity: .65;
+}
+
+.hero-left {
+  max-width: 560px;
+  animation: heroTextIn .8s ease both;
+}
+
+.hero-left h1 {
+  font-size: clamp(42px, 5.2vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -2.2px;
+  margin: 23px 0;
+}
+
+.hero-left p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #63728a;
+  max-width: 510px;
+}
+
+/* Hero image — faster entrance */
+.hero-right {
+  animation: heroImageIn 0.8s cubic-bezier(.2, .8, .2, 1) 0.25s both;
+  max-width: 48%;
+}
+
+.hero-right img {
+  width: clamp(320px, 39vw, 510px);
+  max-height: 520px;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 35px rgba(21, 65, 119, .18));
+  animation: heroFloat 5s ease-in-out 1s infinite;
+}
+
+@keyframes heroImageIn {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.hero-btns {
+  gap: 12px;
+}
+
+.primary {
+  background: linear-gradient(135deg, #226eb9, #124e91);
+  border-radius: 999px;
+  padding: 14px 25px;
+}
+
+.secondary {
+  border-radius: 999px;
+  padding: 14px 25px;
+  background: rgba(255, 255, 255, .75);
+  border-color: #d8e2ef;
+}
+
+.trust {
+  flex-wrap: wrap;
+  line-height: 1.6;
+}
+
+/* Shared section styling */
+.features-section,
+.appIntroduction,
+.howit-section,
+.testimonials,
+.faqs-section,
+.contact-section,
+.download-section,
+.footer-section {
+  isolation: isolate;
+}
+
+.features-top,
+.faqs-header,
+.t-header {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features-title,
+.t-header h2,
+.faqs-header h1,
+.contact-title {
+  font-size: clamp(32px, 4vw, 48px);
+  letter-spacing: -1.4px;
+  line-height: 1.12;
+}
+
+.badge,
+.features-badge,
+.t-badge,
+.faq-badge,
+.contact-badge,
+.community-badge,
+.howit-badge {
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.feature-card,
+.app-card,
+.info-card,
+.t-card,
+.faq-item,
+.contact-card,
+.c-card {
+  border: 1px solid rgba(30, 76, 132, .09);
+  box-shadow: 0 18px 48px rgba(21, 54, 96, .08);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.feature-card:hover,
+.t-card:hover,
+.c-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 24px 52px rgba(21, 54, 96, .14);
+  border-color: rgba(23, 92, 168, .2);
+}
+
+.feature-card {
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .88);
+  padding: 24px;
+}
+
+.app-card,
+.info-card {
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .9);
+  backdrop-filter: blur(12px);
+}
+
+.testimonials {
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    #edf4ff 0%,
+    #f8faff 55%,
+    #fff 100%
+  );
+}
+
+.t-header h2 span {
+  background: linear-gradient(90deg, #f6a13d, #ed7516);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.t-card {
+  border-radius: 24px;
+  padding-bottom: 18px;
+  animation: cardRise .7s ease both;
+}
+
+.t-card-1 {
+  animation-delay: .1s;
+}
+
+.t-card-2 {
+  animation-delay: .3s;
+}
+
+.t-card-3 {
+  animation-delay: .5s;
+}
+
+.t-user img {
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(16, 48, 88, .16);
+}
+
+.t-stars {
+  color: #f5a623;
+  letter-spacing: 3px;
+}
+
+.faq-item {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .88);
+  cursor: pointer;
+}
+
+.faq-item:hover {
+  border-color: #b8d2f1;
+}
+
+.contact-card {
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .92);
+}
+
+.contact-right input,
+.contact-right textarea {
+  border: 1px solid #dce5f0;
+  border-radius: 13px;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.contact-right input:focus,
+.contact-right textarea:focus {
+  outline: none;
+  border-color: #4d8bc8;
+  box-shadow: 0 0 0 4px rgba(77, 139, 200, .12);
+}
+
+.send-btn {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #236eb7, #124e91);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(18, 78, 145, .22);
+}
+
+.c-card {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .8);
+}
+
+.footer-section {
+  background: #0e203b;
+  color: #e8eff9;
+}
+
+.footer-section a {
+  transition: color .2s;
+}
+
+.footer-section a:hover {
+  color: #ffad5c;
+}
+
+/* Animations */
+@keyframes heroImageIn {
+  from {
+    opacity: 0;
+    transform: translateX(90px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive navbar and hero */
+@media (max-width: 1100px) {
+  .navbar {
+    border-radius: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    min-height: unset;
+  }
+
+  .hero-water.water2 {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    top: 6px;
+    margin: 6px auto 0;
+    width: calc(100% - 20px);
+    padding: 12px 14px;
+    justify-content: center;
+    border-radius: 22px;
+  }
+
+  .nav-logo {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links li {
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .nav-cta {
+    margin: 0 auto;
+    font-size: 12px;
+    padding: 10px 16px;
+  }
+
+  .hero {
+    padding: 64px 6% 54px;
+    gap: 12px;
+  }
+
+  .hero-left h1 {
+    font-size: clamp(36px, 9vw, 48px);
+    letter-spacing: -1.3px;
+  }
+
+  .hero-left p {
+    font-size: 15px;
+  }
+
+  .hero-btns {
+    flex-wrap: wrap;
+  }
+
+  .hero-right {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-right img {
+    width: min(88vw, 390px);
+    margin-top: 14px;
+  }
+
+  .hero-water.water2 {
+    width: 260px;
+    height: 260px;
+    right: -100px;
+    top: 42%;
+  }
+
+  .trust {
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .t-header h2 {
+    font-size: 32px;
+  }
+
+  .t-body {
+    margin-top: 32px;
+  }
+
+  .t-cards-area {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 10px 0;
+  }
+
+  .t-card {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    min-height: unset;
+  }
+
+  .watercolor {
+    left: 10%;
+    top: 12%;
+    width: 80%;
+    height: 70%;
+    opacity: .25;
+  }
+
+  .t-slogan {
+    margin-top: 24px;
+  }
+
+  .contact-card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .features-content {
+    gap: 28px;
+  }
+
+  .footer-top {
+    gap: 28px;
+  }
+
+  .ft-nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Anchor navigation offset */
+section {
+  scroll-margin-top: 120px;
+}
+
+/* Balanced spacing for content sections only.
+   Hero and Footer are intentionally excluded. */
+.features-section,
+.appIntroduction,
+.howit-section,
+.testimonials,
+.faqs-section,
+.contact-section,
+.download-section {
+  padding-top: 42px !important;
+  padding-bottom: 42px !important;
+}
+
+/* Mobile section spacing */
+@media (max-width: 768px) {
+  .features-section,
+  .appIntroduction,
+  .howit-section,
+  .testimonials,
+  .faqs-section,
+  .contact-section,
+  .download-section {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+}
+
+/* Add more space between Hero and Features */
+.features-section {
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .features-section {
+    margin-top: 20px;
+  }
+}
+
+/* =========================================
+   KAAMDAAR — PREMIUM WEBSITE ANIMATIONS
+   ========================================= */
+
+/* 1. Features: floating illustrations */
+.features-section .feature-card img {
+  transition: transform 0.45s ease, filter 0.45s ease;
+  will-change: transform;
+}
+
+.features-section .feature-card:hover img {
+  transform: translateY(-7px) scale(1.04);
+  filter: drop-shadow(0 10px 12px rgba(23, 92, 168, 0.14));
+}
+
+/* 2. Application Introduction: levitating phone mockup */
+.app-phone img {
+  animation: appPhoneFloat 5s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes appPhoneFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(0.6deg);
+  }
+}
+
+/* Application cards: subtle premium lift */
+.appIntroduction .app-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.appIntroduction .app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 42px rgba(21, 54, 96, 0.13);
+}
+
+/* 3. How It Works: images gently float */
+.howit-section img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.howit-section img:hover {
+  transform: translateY(-6px) scale(1.025);
+  filter: drop-shadow(0 12px 15px rgba(23, 92, 168, 0.12));
+}
+
+/* 4. Testimonials: smoother card interaction
+   Existing testimonial animations remain intact */
+.testimonials .t-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.testimonials .t-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 50px rgba(21, 54, 96, 0.15);
+}
+
+/* 5. FAQs: smooth interactive lift */
+.faqs-section .faq-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.faqs-section .faq-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(21, 54, 96, 0.09);
+}
+
+/* 6. Contact: card and form interaction */
+.contact-section .contact-card {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.contact-section .contact-card:hover {
+  box-shadow: 0 26px 60px rgba(21, 54, 96, 0.13);
+  border-color: rgba(23, 92, 168, 0.18);
+}
+
+.contact-section input,
+.contact-section textarea {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 7. Download: floating illustrations and cards */
+.download-section img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.download-section img:hover {
+  transform: translateY(-6px) scale(1.03);
+  filter: drop-shadow(0 12px 14px rgba(23, 92, 168, 0.12));
+}
+
+.download-section .c-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.download-section .c-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 42px rgba(21, 54, 96, 0.13);
+}
+
+/* 8. Shared buttons: subtle interaction */
+button,
+.primary,
+.secondary,
+.nav-cta,
+.send-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.primary:hover,
+.secondary:hover,
+.send-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* 9. Smooth image rendering */
+.features-section img,
+.appIntroduction img,
+.howit-section img,
+.testimonials img,
+.faqs-section img,
+.contact-section img,
+.download-section img {
+  backface-visibility: hidden;
+}
+
+/* 10. Accessibility: disable continuous motion if requested */
+@media (prefers-reduced-motion: reduce) {
+  .app-phone img {
+    animation: none !important;
+  }
+
+  .features-section *,
+  .appIntroduction *,
+  .howit-section *,
+  .testimonials *,
+  .faqs-section *,
+  .contact-section *,
+  .download-section * {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Mobile: keep movement subtle */
+@media (max-width: 768px) {
+  .app-phone img {
+    animation-duration: 6s;
+  }
+
+  .features-section .feature-card:hover img,
+  .faqs-section .faq-item:hover,
+  .download-section .c-card:hover {
+    transform: none;
+  }
+}
+
+/* =================================
+   KAAMDAAR SECTION ANIMATIONS
+   ================================= */
+
+/* Features cards */
+.features-section .feature-card {
+  opacity: 0;
+  animation: featureCardEnter 0.8s ease forwards;
+  animation-play-state: paused;
+}
+
+.features-section.is-visible .feature-card {
+  animation-play-state: running;
+}
+
+.features-section.is-visible .feature-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.features-section.is-visible .feature-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes featureCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Application Introduction: floating phone */
+.app-phone img {
+  animation: appPhoneFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes appPhoneFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(1deg);
+  }
+}
+
+.appIntroduction.is-visible .app-content {
+  animation: appContentEnter 0.85s ease 0.2s both;
+}
+
+@keyframes appContentEnter {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* How It Works */
+.howit-section.is-visible .info-card {
+  animation: howCardEnter 0.75s ease both;
+}
+
+.howit-section.is-visible .info-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.howit-section.is-visible .info-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes howCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FAQs */
+.faqs-section.is-visible .faq-item {
+  animation: faqItemEnter 0.65s ease both;
+}
+
+@keyframes faqItemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact */
+.contact-section.is-visible .contact-card {
+  animation: contactCardEnter 0.85s ease both;
+}
+
+@keyframes contactCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Download: floating images */
+.download-section.is-visible img {
+  animation: downloadImageFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes downloadImageFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* Noticeable hover interactions */
+.features-section .feature-card:hover,
+.faqs-section .faq-item:hover,
+.download-section .c-card:hover,
+.appIntroduction .app-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 22px 42px rgba(21, 54, 96, 0.14);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .app-phone img {
+    animation: none !important;
+  }
+
+  .features-section .feature-card,
+  .appIntroduction .app-content,
+  .howit-section .info-card,
+  .faqs-section .faq-item,
+  .contact-section .contact-card {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+/* =========================================
+   KAAMDAAR — PREMIUM TYPOGRAPHY & POLISH
+   Existing colour palette preserved
+========================================= */
+
+:root {
+  --font-body: 'DM Sans', sans-serif;
+  --font-heading: 'Manrope', sans-serif;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav-brand-name,
+.ft-logo h3 {
+  font-family: var(--font-heading);
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+p {
+  letter-spacing: -0.01em;
+}
+
+/* Navbar typography */
+.nav-brand-name {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.nav-brand-name small {
+  letter-spacing: 0.025em;
+  font-weight: 500;
+}
+
+.nav-links li {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.nav-links li.active {
+  font-weight: 700;
+}
+
+/* Hero */
+.hero-left h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+.hero-left p {
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0;
+}
+
+.primary,
+.secondary,
+.nav-cta,
+.send-btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+/* Section headings */
+.features-title,
+.t-header h2,
+.faqs-header h1,
+.contact-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+
+/* Cards */
+.feature-card,
+.app-card,
+.info-card,
+.t-card,
+.faq-item,
+.contact-card,
+.c-card {
+  border-radius: 22px;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.feature-card h3,
+.app-card h3,
+.info-card h3,
+.t-card h3,
+.faq-item h3,
+.c-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.feature-card p,
+.app-card p,
+.info-card p,
+.t-card p,
+.c-card p {
+  line-height: 1.75;
+}
+
+/* Footer */
+.footer-section {
+  font-family: var(--font-body);
+}
+
+.ft-logo h3 {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.ft-logo span {
+  letter-spacing: 0;
+}
+
+.ft-nav a {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+/* Form fields */
+.contact-right input,
+.contact-right textarea {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contact-right input::placeholder,
+.contact-right textarea::placeholder {
+  font-family: var(--font-body);
+  opacity: 0.75;
+}
+
+/* Refined interactions */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .hero-left h1 {
+    letter-spacing: -0.04em;
+    line-height: 1.12;
+  }
+
+  .features-title,
+  .t-header h2,
+  .faqs-header h1,
+  .contact-title {
+    letter-spacing: -0.035em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

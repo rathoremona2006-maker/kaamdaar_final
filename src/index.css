@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Kaamdaar Light Premium — single source of truth for brand colours */
+:root {
+  --color-navy: #0B1F3A;
+  --color-blue: #1261A0;
+  --color-orange: #FF7A00;
+  --color-orange-light: #FFB15C;
+  --color-off-white: #F7F9FC;
+  --color-white: #FFFFFF;
+
+  --color-page-bg: var(--color-off-white);
+  --color-surface: var(--color-white);
+  --color-text-primary: var(--color-navy);
+  --color-text-secondary: #64748B;
+  --color-text-inverse: var(--color-white);
+  --color-border: #E2E8F0;
+  --color-focus: var(--color-blue);
+  --shadow-card: 0 8px 30px rgba(11, 31, 58, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--color-text-primary);
+  background: var(--color-page-bg);
+  font-family: 'DM Sans', 'Manrope', sans-serif;
+}

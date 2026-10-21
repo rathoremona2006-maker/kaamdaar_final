@@ -1,0 +1,506 @@
+.profile-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #edf4fb;
+  font-family: 'Inter', sans-serif;
+  color: #0a1931;
+}
+
+.profile-page *,
+.profile-page *::before,
+.profile-page *::after {
+  box-sizing: border-box;
+}
+
+/* Navbar */
+
+.mobile-otp-navbar {
+  position: sticky;
+  top: 14px;
+  z-index: 1000;
+
+  width: calc(100% - 9.6%);
+  min-height: 76px;
+  margin: 14px auto 0;
+  padding: 12px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 30px rgba(10, 25, 49, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.logo{
+  height: 48px;
+}
+
+/* Navbar logo */
+
+.mobile-otp-navbar .mobile-otp-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  color: #0a1931;
+  text-decoration: none;
+}
+
+.mobile-otp-brand-mark {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--color-orange), #ff9b32);
+  box-shadow: 0 5px 14px rgba(255, 122, 0, 0.2);
+
+  color: var(--color-white);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.mobile-otp-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mobile-otp-brand-name {
+  color: #0a1931;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+}
+
+.mobile-otp-brand-name span {
+  color: var(--color-orange);
+}
+
+.mobile-otp-brand-text small {
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* Navbar links */
+
+.mobile-otp-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+}
+
+.mobile-otp-home-link {
+  color: #0a1931;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  transition: color 0.25s ease;
+}
+
+.mobile-otp-home-link:hover {
+  color: var(--color-orange);
+}
+
+/* Pill-shaped Login button */
+
+.mobile-otp-login-button {
+  min-width: 112px;
+  min-height: 44px;
+  padding: 10px 25px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #0a4385;
+  border-radius: 999px;
+
+  color: #0a1931;
+  background: rgba(255, 255, 255, 0.55);
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mobile-otp-login-button:hover {
+  background: #0a1931;
+  color: var(--color-white);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(10, 25, 49, 0.15);
+}
+/* Centered profile screen */
+
+.profile-main {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding: 32px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 28px 27px 32px;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 17px;
+  box-shadow: 0 16px 45px rgba(10, 25, 49, 0.07);
+}
+
+.profile-card-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.profile-card-brand .profile-brand-mark {
+  width: 46px;
+  height: 46px;
+  font-size: 26px;
+}
+
+.profile-card-brand .profile-brand-name {
+  font-size: 27px;
+}
+
+.profile-card-brand .profile-brand-text small {
+  font-size: 10px;
+}
+
+.profile-card h1 {
+  margin: 0;
+  color: #0a1931;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+.profile-description {
+  max-width: 330px;
+  margin: 10px auto 20px;
+  color: #60728d;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Fields */
+
+.profile-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-field {
+  width: 100%;
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 15px;
+  position: relative;
+  border: 1.5px solid #cad6e6;
+  border-radius: 13px;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-field:focus-within {
+  border-color: #1e63a0;
+  box-shadow: 0 0 0 3px rgba(30, 99, 160, 0.09);
+}
+
+.profile-field-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #607792;
+}
+
+.profile-field-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.profile-field input,
+.profile-field select {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  color: #0a1931;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.profile-field input::placeholder,
+.profile-field select:invalid {
+  color: #7a8ba5;
+  opacity: 1;
+}
+
+.profile-field select {
+  appearance: none;
+  padding-right: 22px;
+  cursor: pointer;
+}
+
+.profile-field select:invalid {
+  color: #7a8ba5;
+}
+
+.profile-field select option {
+  color: #0a1931;
+}
+
+.profile-select-arrow {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #607792;
+  font-size: 21px;
+  pointer-events: none;
+}
+
+/* Button */
+
+.profile-primary-button {
+  width: 100%;
+  min-height: 59px;
+  margin-top: 21px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(100deg, #ff7900, #ff6800);
+  color: #fff;
+  font-family: inherit;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-primary-button span {
+  font-size: 25px;
+  line-height: 1;
+}
+
+.profile-primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(255, 122, 0, 0.22);
+}
+
+.profile-primary-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.profile-error {
+  margin: 12px 0 0;
+  color: #c62828;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Registration success */
+
+.profile-success-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 44px 30px;
+  background: #fff;
+  border-radius: 17px;
+  box-shadow: 0 16px 45px rgba(10, 25, 49, 0.07);
+  text-align: center;
+}
+
+.profile-success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e3f5e9;
+  color: #237644;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.profile-success-card h1 {
+  margin: 0 0 12px;
+  color: #0a1931;
+  font-size: 27px;
+  line-height: 1.3;
+}
+
+.profile-success-card p {
+  margin: 0;
+  color: #60728d;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.profile-home-button {
+  margin-top: 25px;
+  text-decoration: none;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .profile-navbar {
+    min-height: 70px;
+    padding: 12px 5%;
+  }
+
+  .profile-brand-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 21px;
+  }
+
+  .profile-brand-name {
+    font-size: 20px;
+  }
+
+  .profile-brand-text small {
+    font-size: 9px;
+  }
+
+  .profile-nav-links {
+    gap: 15px;
+  }
+
+  .profile-home-link {
+    font-size: 14px;
+  }
+
+  .profile-login-button {
+    min-width: 76px;
+    min-height: 38px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+
+  .profile-main {
+    padding: 24px 15px;
+  }
+
+  .profile-card {
+    max-width: 440px;
+    padding: 25px 19px 27px;
+  }
+
+  .profile-card-brand {
+    margin-bottom: 22px;
+  }
+
+  .profile-card-brand .profile-brand-mark {
+    width: 40px;
+    height: 40px;
+    font-size: 23px;
+  }
+
+  .profile-card-brand .profile-brand-name {
+    font-size: 24px;
+  }
+
+  .profile-card h1 {
+    font-size: 26px;
+  }
+
+  .profile-description {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .profile-form-fields {
+    gap: 9px;
+  }
+
+  .profile-field {
+    min-height: 48px;
+    padding: 0 12px;
+    gap: 10px;
+  }
+
+  .profile-field input,
+  .profile-field select {
+    font-size: 14px;
+  }
+
+  .profile-primary-button {
+    min-height: 55px;
+    margin-top: 19px;
+    font-size: 17px;
+  }
+
+  .profile-success-card {
+    padding: 35px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-page *,
+  .profile-page *::before,
+  .profile-page *::after {
+    transition: none !important;
+  }
+}
