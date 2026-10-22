@@ -49,8 +49,21 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-.logo{
+/* Navbar logo */
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  display: block;
   height: 48px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
 }
 
 /* Navbar links */
@@ -71,7 +84,7 @@
 }
 
 .signup-home-link:hover {
-  color: var(--color-orange);
+  color: var(--color-orange, #ff7a00);
 }
 
 /* Pill-shaped Login button */
@@ -142,28 +155,21 @@
   box-shadow: 0 18px 55px rgba(10, 25, 49, 0.08);
 }
 
-/* Card brand */
+/* Card brand logo */
 
 .signup-card-brand {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   margin-bottom: 42px;
 }
 
-.signup-card-brand .signup-brand-mark {
-  width: 51px;
+.signup-card-brand img {
+  display: block;
+  width: auto;
   height: 51px;
-  font-size: 29px;
-}
-
-.signup-card-brand .signup-brand-name {
-  font-size: 30px;
-}
-
-.signup-card-brand .signup-brand-text small {
-  font-size: 11px;
+  max-width: 190px;
+  object-fit: contain;
 }
 
 /* Heading */
@@ -194,6 +200,7 @@
 .signup-mobile-input {
   width: 100%;
   min-height: 63px;
+
   display: flex;
   align-items: center;
   gap: 11px;
@@ -261,6 +268,17 @@
 }
 
 /* ========================================
+   ERROR MESSAGE
+======================================== */
+
+.signup-error {
+  margin: 10px 0 0;
+  color: #c62828;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ========================================
    CONTINUE BUTTON
 ======================================== */
 
@@ -278,7 +296,11 @@
   border: 0;
   border-radius: 999px;
 
-  background: linear-gradient(135deg, var(--color-orange), #ff922e);
+  background: linear-gradient(
+    135deg,
+    var(--color-orange, #ff7a00),
+    #ff922e
+  );
   color: #fff;
 
   font-family: inherit;
@@ -309,14 +331,6 @@
 .signup-primary-button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
-}
-/* Error message */
-
-.signup-error {
-  margin: 10px 0 0;
-  color: #c62828;
-  font-size: 13px;
-  line-height: 1.5;
 }
 
 /* ========================================
@@ -352,23 +366,9 @@
     gap: 12px;
   }
 
-  .signup-brand {
-    gap: 6px;
-  }
-
-  .signup-brand-mark {
-    width: 34px;
-    height: 34px;
-    font-size: 19px;
-  }
-
-  .signup-brand-name {
-    font-size: 18px;
-    letter-spacing: -0.6px;
-  }
-
-  .signup-brand-text small {
-    font-size: 8px;
+  .nav-logo img {
+    height: 38px;
+    max-width: 125px;
   }
 
   .signup-nav-links {
@@ -399,18 +399,9 @@
     margin-bottom: 32px;
   }
 
-  .signup-card-brand .signup-brand-mark {
-    width: 43px;
+  .signup-card-brand img {
     height: 43px;
-    font-size: 24px;
-  }
-
-  .signup-card-brand .signup-brand-name {
-    font-size: 25px;
-  }
-
-  .signup-card-brand .signup-brand-text small {
-    font-size: 9px;
+    max-width: 165px;
   }
 
   .signup-card h1 {
@@ -447,29 +438,18 @@
   }
 }
 
-/* Extra-small screens */
+/* ========================================
+   EXTRA-SMALL SCREENS
+======================================== */
 
 @media (max-width: 360px) {
   .signup-navbar {
     padding: 9px 10px;
   }
 
-  .signup-brand {
-    gap: 5px;
-  }
-
-  .signup-brand-mark {
-    width: 30px;
-    height: 30px;
-    font-size: 17px;
-  }
-
-  .signup-brand-name {
-    font-size: 16px;
-  }
-
-  .signup-brand-text small {
-    font-size: 7px;
+  .nav-logo img {
+    height: 32px;
+    max-width: 100px;
   }
 
   .signup-nav-links {

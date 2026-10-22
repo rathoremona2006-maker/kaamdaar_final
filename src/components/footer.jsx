@@ -27,7 +27,7 @@ const Footer = () => {
           </a>
 
           <a className="footer-links" href="#privacy">
-            Carrers
+            Careers
           </a>
           
           <a className="footer-links" href="#privacy">

@@ -96,13 +96,15 @@
   background: radial-gradient(
     circle at 35% 35%,
     #2e5da9 0%,
-    #244a8a 35%,
+    #3361ae 35%,
     #e99a3e 85%
   );
 
   border-radius: 45% 55% 55% 45% / 50% 45% 55% 50%;
-  opacity: 0.9;
+  opacity: 0.5;
   z-index: 0;
+  
+  filter: blur(60px);
 
   animation: blobFloat 7s ease-in-out infinite;
   pointer-events: none;

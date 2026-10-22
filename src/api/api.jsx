@@ -1,46 +1,35 @@
 
-/*
-|--------------------------------------------------------------------------
-| Kaamdaar API Configuration
-|--------------------------------------------------------------------------
-| Abhi signup Preview Mode mein chalega.
-| Backend ready hone par base URL aur routes yahin configure karna.
-*/
+export const API_BASE_URL = "http://192.168.1.3:4000/api/v1";
 
-// Backend ka common base URL
-export const API_BASE_URL = 'http://localhost:5000/api/v1';
-
-// Saare API endpoints ek hi jagah
 export const API_ROUTES = {
-  auth: {
-    requestOtp: `${API_BASE_URL}/auth/otp/request`,
-    verifyOtp: `${API_BASE_URL}/auth/otp/verify`,
-    registerCustomer: `${API_BASE_URL}/auth/register/customer`,
-    requestLoginOtp: `${API_BASE_URL}/auth/login/otp/request`,
-  },
+  requestOtp: `${API_BASE_URL}/auth/otp/request`,
+  verifyOtp: `${API_BASE_URL}/auth/continue`,
 };
 
-/*
-|--------------------------------------------------------------------------
-| Future API usage example
-|--------------------------------------------------------------------------
-|
-| import { API_ROUTES } from '../api/api';
-|
-| const response = await fetch(API_ROUTES.auth.requestOtp, {
-|   method: 'POST',
-|   headers: {
-|     'Content-Type': 'application/json',
-|   },
-|   body: JSON.stringify({
-|     email,
-|     mobile,
-|     purpose: 'registration',
-|     verification_method: verificationMethod,
-|   }),
-| });
-|
-| Abhi is API call ko execute mat karna.
-| Preview Mode mein hardcoded navigation use hogi.
-|
-*/
+export async function postAuthJson(url, body = {}, idToken = null) {
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
+  if (idToken) {
+    headers.Authorization = `Bearer ${idToken}`;
+  }
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+  });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok || data.success === false) {
+    throw new Error(
+      data.message ||
+        data.error?.message ||
+        `API request failed (${response.status})`
+    );
+  }
+
+  return data;
+}

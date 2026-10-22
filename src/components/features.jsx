@@ -1,7 +1,6 @@
 import React from 'react';
 import './features.css';
 
-import features_main from '../assets/features_main.png';
 import features_one from '../assets/features_one.png';
 import features_two from '../assets/features_two.png';
 import features_three from '../assets/features_three.png';
@@ -10,130 +9,88 @@ import features_five from '../assets/features_five.png';
 import features_six from '../assets/features_six.png';
 
 const Features = () => {
-  const featuresData = {
-    badge: 'KAAMDAAR - Har Kaam Turant',
-    title1: 'KAAMDAAR',
-    title2: 'Features &',
-    titleHighlight: 'Capabilities',
-    desc: 'Explore how we connect you with reliable help, instantly. Har Kaam Turant.',
-    mainImage: features_main,
-
-    list: [
-      {
-        id: 'fast_booking',
-        image: features_one,
-        title: 'Fast & Flexible Booking',
-        desc: 'Turant scheduling for immediate or future help.',
-        color: 'blue',
-      },
-      {
-        id: 'vetted',
-        image: features_two,
-        title: 'Vetted Professionals',
-        desc: 'Background-checked and skill-validated experts.',
-        color: 'orange',
-      },
-      {
-        id: 'tracking',
-        image: features_three,
-        title: 'Live Provider Tracking',
-        desc: 'Watch their arrival in real-time.',
-        color: 'blue',
-      },
-      {
-        id: 'pricing',
-        image: features_four,
-        title: 'Transparent Pricing',
-        desc: 'See upfront costs, no hidden surprises.',
-        color: 'orange',
-      },
-      {
-        id: 'multi',
-        image: features_five,
-        title: 'Multi-Category Services',
-        desc: 'From home care to vehicle repair.',
-        color: 'blue',
-      },
-      {
-        id: 'secure',
-        image: features_six,
-        title: 'Secure Payments',
-        desc: 'Safe, multiple payment options.',
-        color: 'orange',
-      },
-    ],
-  };
+  const services = [
+    {
+      id: 'plumbing',
+      title: 'Plumbing',
+      image: features_one,
+      href: '#contact',
+    },
+    {
+      id: 'cleaning',
+      title: 'Cleaning',
+      image: features_two,
+      href: '#contact',
+    },
+    {
+      id: 'electrical',
+      title: 'Electrical',
+      image: features_three,
+      href: '#contact',
+    },
+    {
+      id: 'painting',
+      title: 'Painting',
+      image: features_four,
+      href: '#contact',
+    },
+    {
+      id: 'ac-repair',
+      title: 'AC Repair',
+      image: features_five,
+      href: '#contact',
+    },
+    {
+      id: 'carpentry',
+      title: 'Carpentry',
+      image: features_six,
+      href: '#contact',
+    },
+  ];
 
   return (
     <section className="features-section" id="features">
       <div className="features-top">
-        <span className="features-badge">
-          {featuresData.badge}
-        </span>
+        <span className="features-badge">Our Services</span>
 
         <h2 className="features-title">
-          {featuresData.title1}{' '}
-          <span className="blue">{featuresData.title2}</span>{' '}
-          <span className="orange">
-            {featuresData.titleHighlight}
-          </span>
+          Everyday Services
+          <br />
+          <span className="blue">At Your Fingertips</span>
         </h2>
 
         <p className="features-desc">
-          {featuresData.desc}
+          From home maintenance to everyday needs, Kaamdaar brings
+          trusted professionals to your doorstep. Book conveniently
+          and get your work done hassle-free.
         </p>
       </div>
 
-      <div className="features-content">
-        <div className="features-grid">
-          {featuresData.list.map((item) => (
-            <div
-              className={`feature-card feature-card-${item.color}`}
-              key={item.id}
-              style={{
-                backgroundImage: `linear-gradient(
-                  180deg,
-                  rgba(10, 25, 49, 0.08) 0%,
-                  rgba(10, 25, 49, 0.45) 45%,
-                  rgba(10, 25, 49, 0.94) 100%
-                ), url("${item.image}")`,
-              }}
-            >
-              <div className="feature-card-content">
-                {/*<span className="feature-card-label">
-                  {item.color === 'blue' ? 'KAAMD AAR' : 'OUR PROMISE'}
-                </span>*/}
-
-                <h3>{item.title}</h3>
-
-                <p>{item.desc}</p>
-              </div>
+      <div className="features-grid">
+        {services.map((service) => (
+          <a
+            className="feature-card"
+            href={service.href}
+            key={service.id}
+            aria-label={`Explore ${service.title} services`}
+          >
+            <div className="feature-card-image">
+              <img
+                src={service.image}
+                alt={`${service.title} service`}
+                loading="lazy"
+              />
             </div>
-          ))}
-        </div>
 
-        <div className="features-right">
-          <div className="blue-blob"></div>
+            <div className="feature-card-footer">
+              <h3>{service.title}</h3>
 
-          <img
-            src={featuresData.mainImage}
-            alt="Kaamdaar App Features"
-            className="feature-main-img"
-          />
-
-          <div className="info-card">
-            <div className="info-icon"></div>
-
-            <div>
-              <h4>What is Kaamdaar?</h4>
-
-              <p>
-                An all-in-one home services platform connecting you
-                with vetted professionals for all your needs.
-              </p>
+              <span className="feature-card-arrow" aria-hidden="true">
+                →
+              </span>
             </div>
-          </div>
-        </div>
+          </a>
+        ))}
       </div>
     </section>
   );

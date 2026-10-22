@@ -1,98 +1,93 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './verification_cred.css';
-import logo from '../assets/logo.png';
 
-// API integration — backend ready hone par enable karna
-// import { API_ROUTES } from '../api/api';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./verification_cred.css";
+import logo from "../assets/logo.png";
 
-const PREVIEW_MODE = true;
+import { sendPhoneOtp } from "../api/phoneOtp";
+import { API_ROUTES } from "../api/api";
 
 const VerificationCred = () => {
   const navigate = useNavigate();
 
-  const [countryCode, setCountryCode] = useState('+91');
-  const [mobile, setMobile] = useState('');
+  const [countryCode, setCountryCode] = useState("+91");
+  const [mobile, setMobile] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError('');
+    setError("");
 
-    const cleanedMobile = mobile.replace(/\D/g, '');
+    const cleanedMobile = mobile.replace(/\D/g, "");
 
     if (cleanedMobile.length !== 10) {
-      setError('Please enter a valid 10-digit mobile number.');
+      setError("Please enter a valid 10-digit mobile number.");
       return;
     }
 
-    const registrationDraft = {
-      country_code: countryCode,
-      mobile: cleanedMobile,
-      verificationMethod: 'mobile',
-    };
-
-    // Save the first screen's data for the next screens.
-    sessionStorage.setItem(
-      'kaamdaar_registration_draft',
-      JSON.stringify(registrationDraft)
-    );
-
-    // PREVIEW MODE — active for now; no API call.
-    if (PREVIEW_MODE) {
-      navigate('/signup/verify-mobile', {
-        state: {
-          draft: registrationDraft,
-          maskedDestination: `${countryCode} ${cleanedMobile}`,
-          previewMode: true,
-        },
-      });
-
-      return;
-    }
-
-    /*
-    // DYNAMIC API INTEGRATION — enable when backend is ready.
+    const fullMobile = `${countryCode}${cleanedMobile}`;
     setLoading(true);
 
     try {
-      const response = await fetch(API_ROUTES.auth.requestOtp, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(registrationDraft),
+      // This endpoint should validate/rate-limit the request.
+      // It should not independently send a second OTP.
+      const response = await fetch(API_ROUTES.requestOtp, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mobile: fullMobile }),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
       if (!response.ok || data.success === false) {
-        throw new Error(data.message || 'Unable to send OTP.');
+        throw new Error(
+          data.error?.message || data.message || "Unable to request OTP.",
+        );
       }
 
-      navigate('/signup/verify-mobile', {
+      // Firebase sends the SMS (or uses a configured test number).
+      await sendPhoneOtp({phoneNumber : fullMobile});
+
+      const registrationDraft = {
+        country_code: countryCode,
+        mobile: cleanedMobile,
+        verificationMethod: "mobile",
+      };
+
+      sessionStorage.setItem(
+        "kaamdaar_registration_draft",
+        JSON.stringify(registrationDraft),
+      );
+
+      navigate("/signup/verify-mobile", {
         state: {
           draft: registrationDraft,
-          maskedDestination: `${countryCode} ${cleanedMobile}`,
           previewMode: false,
-          requestId: data.requestId || data.data?.requestId,
         },
       });
     } catch (err) {
-      setError(err.message || 'Unable to connect to the server.');
+      console.error("OTP request failed:", err);
+
+      setError(
+        err.code === "auth/invalid-phone-number"
+          ? "Please enter a valid phone number."
+          : err.code === "auth/too-many-requests"
+            ? "Too many attempts. Please try again later."
+            : err.message || "Unable to send OTP.",
+      );
     } finally {
       setLoading(false);
     }
-    */
   };
 
   return (
     <div className="signup-page">
+      <div id="recaptcha-container"></div>
       {/* Navbar */}
       <header className="signup-navbar">
         <div className="nav-logo" aria-label="Kaamdaar home">
-                <img src={logo}></img>
+          <img src={logo}></img>
         </div>
 
         <nav className="signup-nav-links">
@@ -145,9 +140,7 @@ const VerificationCred = () => {
                 placeholder="Enter mobile number"
                 value={mobile}
                 onChange={(event) =>
-                  setMobile(
-                    event.target.value.replace(/\D/g, '').slice(0, 10)
-                  )
+                  setMobile(event.target.value.replace(/\D/g, "").slice(0, 10))
                 }
                 maxLength={10}
                 required
@@ -163,11 +156,10 @@ const VerificationCred = () => {
 
             <button
               type="submit"
-              onClick={()=>navigate("/signup/verify-mobile")}
               className="signup-primary-button"
               disabled={loading}
             >
-              {loading ? 'Please wait...' : 'Continue'}
+              {loading ? "Sending OTP..." : "Continue"}
               {!loading && <span aria-hidden="true">→</span>}
             </button>
           </form>
