@@ -1,6 +1,7 @@
+
 /* ========================================
    KAAMDAAR — SIGNUP PAGE
-   Navy Blue + Orange | Glass Pill Navbar
+   Navy Blue + Orange
 ======================================== */
 
 .signup-page {
@@ -8,7 +9,7 @@
   display: flex;
   flex-direction: column;
   background: #edf4fb;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #0a1931;
 }
 
@@ -19,67 +20,71 @@
 }
 
 /* ========================================
-   FLOATING GLASS NAVBAR
+   NORMAL FULL-WIDTH NAVBAR
 ======================================== */
 
 .signup-navbar {
-  position: sticky;
-  top: 14px;
+  position: relative;
   z-index: 1000;
-
-  width: calc(100% - 9.6%);
-  min-height: 76px;
-  margin: 14px auto 0;
-  padding: 12px 30px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
 
-  background: rgba(255, 255, 255, 0.76);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  width: 100%;
+  min-height: 92px;
+  margin: 0;
+  padding: 14px 28px;
 
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  border-radius: 999px;
-
-  box-shadow:
-    0 8px 30px rgba(10, 25, 49, 0.07),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.97);
+  border: none;
+  border-bottom: 1px solid #e5ebf2;
+  border-radius: 0;
+  box-shadow: 0 8px 24px rgba(23, 55, 98, 0.08);
 }
 
-/* Navbar logo */
+/* Logo — left */
 
-.nav-logo {
+.signup-navbar .signup-brand {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  margin-right: auto;
   text-decoration: none;
 }
 
-.nav-logo img {
+.signup-navbar .signup-brand img {
   display: block;
-  height: 48px;
-  width: auto;
-  max-width: 180px;
+  width: 165px;
+  height: 62px;
+  max-width: 100%;
   object-fit: contain;
+  object-position: left center;
 }
 
-/* Navbar links */
+/* Home + Login — right */
 
 .signup-nav-links {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 28px;
+  flex: 0 0 auto;
+  gap: 24px;
+  margin-left: auto;
 }
 
 .signup-home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   color: #0a1931;
+  font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 700;
+  white-space: nowrap;
+
   transition: color 0.2s ease;
 }
 
@@ -87,41 +92,38 @@
   color: var(--color-orange, #ff7a00);
 }
 
-/* Pill-shaped Login button */
+/* Normal rectangular Login button */
 
 .signup-login-button {
-  min-width: 112px;
-  min-height: 44px;
-  padding: 10px 25px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
 
-  border: 1.5px solid #0a4385;
-  border-radius: 999px;
+  min-width: 100px;
+  min-height: 44px;
+  padding: 10px 22px;
 
-  color: #0a1931;
-  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--color-orange, #ff7a00);
+  border-radius: 8px;
+
+  background: var(--color-orange, #ff7a00);
+  color: #ffffff;
 
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
 
   transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .signup-login-button:hover {
-  background: #0a1931;
-  color: #fff;
+  background: #e96f00;
   transform: translateY(-1px);
-  box-shadow: 0 5px 15px rgba(10, 25, 49, 0.15);
 }
 
 /* ========================================
@@ -148,14 +150,12 @@
   max-width: 465px;
   padding: 42px 38px 38px;
 
-  background: #fff;
+  background: #ffffff;
   border: 1px solid rgba(10, 25, 49, 0.06);
   border-radius: 26px;
 
   box-shadow: 0 18px 55px rgba(10, 25, 49, 0.08);
 }
-
-/* Card brand logo */
 
 .signup-card-brand {
   display: flex;
@@ -171,8 +171,6 @@
   max-width: 190px;
   object-fit: contain;
 }
-
-/* Heading */
 
 .signup-card h1 {
   margin: 0 0 56px;
@@ -198,17 +196,17 @@
 }
 
 .signup-mobile-input {
-  width: 100%;
-  min-height: 63px;
-
   display: flex;
   align-items: center;
   gap: 11px;
+
+  width: 100%;
+  min-height: 63px;
   padding: 0 17px;
 
   border: 1.5px solid #cad6e6;
   border-radius: 16px;
-  background: #fff;
+  background: #ffffff;
 
   transition:
     border-color 0.2s ease,
@@ -221,19 +219,17 @@
 }
 
 .signup-india-flag {
+  flex-shrink: 0;
   font-size: 21px;
   line-height: 1;
-  flex-shrink: 0;
 }
 
 .signup-mobile-input select {
   max-width: 62px;
   border: 0;
   outline: 0;
-
   color: #60728d;
   background: transparent;
-
   font-family: inherit;
   font-size: 16px;
   font-weight: 600;
@@ -283,15 +279,15 @@
 ======================================== */
 
 .signup-primary-button {
-  width: 100%;
-  min-height: 53px;
-  margin-top: 28px;
-  padding: 14px 22px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
+
+  width: 100%;
+  min-height: 53px;
+  margin-top: 28px;
+  padding: 14px 22px;
 
   border: 0;
   border-radius: 999px;
@@ -301,7 +297,7 @@
     var(--color-orange, #ff7a00),
     #ff922e
   );
-  color: #fff;
+  color: #ffffff;
 
   font-family: inherit;
   font-size: 15px;
@@ -339,12 +335,18 @@
 
 @media (max-width: 900px) {
   .signup-navbar {
-    width: calc(100% - 48px);
-    padding: 12px 22px;
+    min-height: 82px;
+    padding: 10px 22px;
+    gap: 18px;
+  }
+
+  .signup-navbar .signup-brand img {
+    width: 150px;
+    height: 58px;
   }
 
   .signup-nav-links {
-    gap: 22px;
+    gap: 20px;
   }
 
   .signup-main {
@@ -354,24 +356,29 @@
 
 /* ========================================
    MOBILE
+   Logo left, Home + Login right
 ======================================== */
 
 @media (max-width: 600px) {
   .signup-navbar {
-    top: 8px;
-    width: calc(100% - 24px);
-    min-height: 64px;
-    margin-top: 8px;
-    padding: 10px 15px;
+    min-height: 76px;
+    padding: 8px 16px;
     gap: 12px;
   }
 
-  .nav-logo img {
-    height: 38px;
-    max-width: 125px;
+  .signup-navbar .signup-brand {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .signup-navbar .signup-brand img {
+    width: 140px;
+    height: 56px;
+    max-width: 100%;
   }
 
   .signup-nav-links {
+    flex-shrink: 0;
     gap: 12px;
   }
 
@@ -380,9 +387,10 @@
   }
 
   .signup-login-button {
-    min-width: 72px;
-    min-height: 36px;
-    padding: 7px 13px;
+    min-width: 76px;
+    min-height: 38px;
+    padding: 8px 13px;
+    border-radius: 7px;
     font-size: 12px;
   }
 
@@ -444,12 +452,13 @@
 
 @media (max-width: 360px) {
   .signup-navbar {
-    padding: 9px 10px;
+    padding: 8px 10px;
+    gap: 8px;
   }
 
-  .nav-logo img {
-    height: 32px;
-    max-width: 100px;
+  .signup-navbar .signup-brand img {
+    width: 108px;
+    height: 42px;
   }
 
   .signup-nav-links {
@@ -461,9 +470,9 @@
   }
 
   .signup-login-button {
-    min-width: 64px;
-    min-height: 33px;
-    padding: 6px 10px;
+    min-width: 65px;
+    min-height: 34px;
+    padding: 6px 9px;
     font-size: 11px;
   }
 
@@ -487,4 +496,26 @@
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+/* Fix: Remove unwanted top spacing on signup page */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+.signup-page {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.signup-navbar {
+  margin-top: 0;
+  align-self: stretch;
+}
+/* Fix signup page's unwanted top gap */
+body:has(.signup-page) {
+  padding-top: 0 !important;
 }

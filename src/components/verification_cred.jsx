@@ -30,24 +30,27 @@ const VerificationCred = () => {
     setLoading(true);
 
     try {
-      // This endpoint should validate/rate-limit the request.
-      // It should not independently send a second OTP.
       const response = await fetch(API_ROUTES.requestOtp, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ mobile: fullMobile }),
       });
 
       const data = await response.json().catch(() => ({}));
 
+      console.log("Data", data)
+
       if (!response.ok || data.success === false) {
         throw new Error(
-          data.error?.message || data.message || "Unable to request OTP.",
+          data.error?.message ||
+            data.message ||
+            "Unable to request OTP."
         );
       }
 
-      // Firebase sends the SMS (or uses a configured test number).
-      await sendPhoneOtp({phoneNumber : fullMobile});
+      await sendPhoneOtp({ phoneNumber: fullMobile });
 
       const registrationDraft = {
         country_code: countryCode,
@@ -57,7 +60,7 @@ const VerificationCred = () => {
 
       sessionStorage.setItem(
         "kaamdaar_registration_draft",
-        JSON.stringify(registrationDraft),
+        JSON.stringify(registrationDraft)
       );
 
       navigate("/signup/verify-mobile", {
@@ -74,7 +77,7 @@ const VerificationCred = () => {
           ? "Please enter a valid phone number."
           : err.code === "auth/too-many-requests"
             ? "Too many attempts. Please try again later."
-            : err.message || "Unable to send OTP.",
+            : err.message || "Unable to send OTP."
       );
     } finally {
       setLoading(false);
@@ -83,14 +86,18 @@ const VerificationCred = () => {
 
   return (
     <div className="signup-page">
-      <div id="recaptcha-container"></div>
-      {/* Navbar */}
-      <header className="signup-navbar">
-        <div className="nav-logo" aria-label="Kaamdaar home">
-          <img src={logo}></img>
-        </div>
+      <div id="recaptcha-container" />
 
-        <nav className="signup-nav-links">
+      <header className="signup-navbar">
+        <Link
+          to="/"
+          className="signup-brand"
+          aria-label="Kaamdaar home"
+        >
+          <img src={logo} alt="Kaamdaar logo" />
+        </Link>
+
+        <nav className="signup-nav-links" aria-label="Signup navigation">
           <Link to="/" className="signup-home-link">
             Home
           </Link>
@@ -101,11 +108,10 @@ const VerificationCred = () => {
         </nav>
       </header>
 
-      {/* Create Account */}
       <main className="signup-main">
         <section className="signup-card">
           <div className="signup-card-brand" aria-hidden="true">
-            <img src={logo}></img>
+            <img src={logo} alt="" />
           </div>
 
           <h1>Create an Account</h1>
@@ -123,7 +129,9 @@ const VerificationCred = () => {
               <select
                 aria-label="Country code"
                 value={countryCode}
-                onChange={(event) => setCountryCode(event.target.value)}
+                onChange={(event) =>
+                  setCountryCode(event.target.value)
+                }
                 disabled={loading}
               >
                 <option value="+91">+91</option>
@@ -140,7 +148,9 @@ const VerificationCred = () => {
                 placeholder="Enter mobile number"
                 value={mobile}
                 onChange={(event) =>
-                  setMobile(event.target.value.replace(/\D/g, "").slice(0, 10))
+                  setMobile(
+                    event.target.value.replace(/\D/g, "").slice(0, 10)
+                  )
                 }
                 maxLength={10}
                 required

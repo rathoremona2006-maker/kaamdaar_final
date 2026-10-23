@@ -22,7 +22,7 @@ import VerificationCred from './components/verification_cred.jsx';
 import OtpMobile from './components/otp_mobile.jsx';
 import OtpEmail from './components/otp_email.jsx';
 import Profile from './components/profile.jsx';
-
+import DetectLocation from './components/DetectLocation.jsx';
 import './App.css';
 
 const Home = () => (
@@ -58,6 +58,7 @@ const Home = () => (
     <section id="download">
       <Download />
     </section>
+
   </>
 );
 
@@ -153,7 +154,7 @@ const WebsiteLayout = () => {
 // Signup pages apna header/footer khud render karte hain.
 // Is layout mein main website Navbar/Footer nahi hain.
 function App() {
-  return (
+  return  (
     <BrowserRouter>
       <ScrollToTop />
 
@@ -190,6 +191,10 @@ function App() {
           path="/signup/profile"
           element={<Profile />}
         />
+        <Route 
+        path="/location"
+        element={<DetectLocation/>}>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
